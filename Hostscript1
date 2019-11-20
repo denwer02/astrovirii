@@ -28,12 +28,13 @@ wods.sort()
 with open('HostList.txt','w') as b:
     for l in wods:
         b.write(l+'\n')
-for z in organismlist:
-    b = organismlist.count(k)
-    organismlistnew.append(k +' '+str(b))
+for j in organismlist:
+    z = organismlist.count(j)
+    organismlistnew.append(j +' '+str(z))
 wod=set(organismlistnew)
 wods=list(wod)
 wods.sort()
+print(wods)
 with open('organismlist.txt','w') as c:
     for q in wods:
-        b.write(q+'\n')
+        c.write(q+'\n')
