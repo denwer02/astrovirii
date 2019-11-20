@@ -1,32 +1,9 @@
-for console
-
 import sys   
-f = sys.argv[1] 
+i = 0 
 hostlist = []
-i = 0 
-hostlist = [] 
-with open(f,'r') as a: 
-     for line in a: 
-        if line.find('/host') != -1: 
-            line.strip() 
-            number1 = line.find('"')
-            number1 = number1+1
-            number2 = line.find('"',number1)
-            hostlist.append(line[number1:number2]) 
-            i += 1 
-hostlist.sort()
-print(hostlist)
-wod=set(hostlist)
-with open('HostList.txt','w') as b:
-    for l in wod:
-        b.write(l)
-
-
-for Jupiter
-  
-import sys   
-i = 0 
-hostlist = [] 
+hostlistnew = []
+organismlist = []
+organismlistnew = []
 with open('sequence.gb','r') as a: 
      for line in a: 
         if line.find('/host') != -1: 
@@ -35,10 +12,28 @@ with open('sequence.gb','r') as a:
             number1 = number1+1
             number2 = line.find('"',number1)
             hostlist.append(line[number1:number2]) 
-            i += 1 
-hostlist.sort()
-print(hostlist)
-wod=set(hostlist)
+            i += 1
+        if line.find('/organism') != -1:
+            number1 = line.find('"')
+            number1 = number1+1
+            number2 = line.find('"',number1)
+            organismlist.append(line[number1:number2])
+            i += 1
+for k in hostlist:
+    b = hostlist.count(k)
+    hostlistnew.append(k +' '+str(b))
+wod=set(hostlistnew)
+wods=list(wod)
+wods.sort()
 with open('HostList.txt','w') as b:
-    for l in wod:
-        b.write(l)
+    for l in wods:
+        b.write(l+'\n')
+for z in organismlist:
+    b = organismlist.count(k)
+    organismlistnew.append(k +' '+str(b))
+wod=set(organismlistnew)
+wods=list(wod)
+wods.sort()
+with open('organismlist.txt','w') as c:
+    for q in wods:
+        b.write(q+'\n')
