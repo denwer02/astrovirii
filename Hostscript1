@@ -19,8 +19,11 @@ with open('sequence.gb','r') as a:
             number2 = line.find('"',number1)
             organismlist.append(line[number1:number2])
         if line.find('ACCESSION') != -1:
-            if i = 1:
-                productdict.update(line[anumber1:], productlist)
+            if i == 1:
+                with open('product.txt','w') as g:
+                    g.write(line[anumber:]+'\n')
+                    for f in productlist:
+                        g.write(f+'\n')
                 productlist = []
             anumber=line.rfind(' ')
             i = 1
@@ -28,7 +31,7 @@ with open('sequence.gb','r') as a:
             number1 = line.find('"')
             number1 = number1+1
             number2 = line.find('"',number1)
-            productlist.append(line[number1:number2]
+            productlist.append(line[number1:number2])
             for k in hostlist:
                 b = hostlist.count(k)
                 hostlistnew.append(k +' '+str(b))
